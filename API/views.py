@@ -88,3 +88,16 @@ class BooksList(APIView):
          serializer=Bookserializer(books,many=True)
          return Response(serializer.data,status=status.HTTP_200_OK)
      
+     class UserLogin(APIView):
+         
+         def post(self, request):
+             
+            serializer = serializer.LoginSerializer(
+            data=self.request.data
+        )
+            if not serializer.is_valid():
+               return Response({'details': serializer.errors}, status.HTTP_400_BAD_REQUEST)
+
+           
+       
+       
